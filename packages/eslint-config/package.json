@@ -1,0 +1,33 @@
+{
+  "name": "@open-dpp/eslint-config",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "description": "Shared ESLint configurations for Open DPP monorepo",
+  "main": "base.ts",
+  "types": "base.ts",
+  "exports": {
+    ".": "./base.ts",
+    "./base": "./base.ts",
+    "./nextjs": "./nextjs.ts",
+    "./nestjs": "./nestjs.ts"
+  },
+  "files": [
+    "base.ts",
+    "nextjs.ts",
+    "nestjs.ts",
+    "eslint-config-prettier.d.ts"
+  ],
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^8.46.4",
+    "@typescript-eslint/parser": "^8.46.4",
+    "@types/eslint": "^9.6.1",
+    "eslint": "^9.39.1",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.2"
+  },
+  "peerDependencies": {
+    "eslint": "^9.0.0",
+    "typescript": "^5.0.0"
+  }
+}
