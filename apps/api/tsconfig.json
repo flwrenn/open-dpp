@@ -3,13 +3,11 @@
   "compilerOptions": {
     "outDir": "./dist",
     "baseUrl": "./",
-    "moduleResolution": "node",
     "strictNullChecks": false,
     "noImplicitAny": false,
     "strictBindCallApply": false,
     "forceConsistentCasingInFileNames": false,
-    "noFallthroughCasesInSwitch": false,
-    "allowImportingTsExtensions": false
+    "noFallthroughCasesInSwitch": false
   },
   "include": ["src/**/*", "test/**/*"],
   "exclude": ["node_modules", "dist", "coverage", "eslint.config.ts"]
