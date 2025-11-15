@@ -166,6 +166,14 @@ All configuration files use TypeScript and ES modules for better type safety and
 4. Ensure linting passes: `pnpm lint`
 5. Submit a pull request
 
+**Note:** The `main` and `develop` branches are protected. All changes must go through pull requests with:
+
+- ✅ CI checks passing
+- ✅ Code review approval
+- ✅ All conversations resolved
+
+See [docs/BRANCH-PROTECTION.md](./docs/BRANCH-PROTECTION.md) for details.
+
 ## License
 
 UNLICENSED - Private project
