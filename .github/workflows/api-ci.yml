@@ -96,25 +96,6 @@ jobs:
         run: pnpm audit --audit-level=moderate
         continue-on-error: true
 
-  docker-build:
-    runs-on: ubuntu-latest
-    if: hashFiles('apps/api/Dockerfile') != ''
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
-
-      - name: Build Docker image
-        uses: docker/build-push-action@v5
-        with:
-          context: .
-          file: apps/api/Dockerfile
-          push: false
-          tags: open-dpp-api:ci
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
-
   performance:
     runs-on: ubuntu-latest
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
