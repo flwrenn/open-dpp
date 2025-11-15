@@ -21,7 +21,7 @@ const config: Linter.Config[] = [
       prettier: prettier as any,
     },
     rules: {
-      ...prettierConfig.rules,
+      ...(prettierConfig.rules || {}),
       'prettier/prettier': 'error',
       '@typescript-eslint/no-unused-vars': [
         'error',

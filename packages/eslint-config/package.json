@@ -15,7 +15,8 @@
   "files": [
     "base.ts",
     "nextjs.ts",
-    "nestjs.ts"
+    "nestjs.ts",
+    "eslint-config-prettier.d.ts"
   ],
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^8.46.4",
