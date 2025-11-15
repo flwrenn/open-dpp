@@ -1,0 +1,221 @@
+# ===================================
+# Dependencies
+# ===================================
+node_modules/
+.pnp
+.pnp.js
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# pnpm
+.pnpm-store/
+pnpm-lock.yaml.bak
+
+# ===================================
+# Build Artifacts
+# ===================================
+dist/
+build/
+.next/
+out/
+*.tsbuildinfo
+
+# ===================================
+# Testing & Coverage
+# ===================================
+coverage/
+*.lcov
+.nyc_output
+test-results/
+playwright-report/
+junit.xml
+
+# ===================================
+# Logs
+# ===================================
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Runtime data
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Diagnostic reports
+report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+
+# ===================================
+# Environment Variables & Secrets
+# ===================================
+.env
+.env.*
+!.env.example
+!.env.template
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# API Keys & Credentials
+*.pem
+*.key
+*.cert
+*.crt
+secrets/
+credentials/
+*.credentials
+
+# ===================================
+# Monorepo & Build Tools
+# ===================================
+# Turbo
+.turbo/
+turbo.json.lock
+
+# NX (if added later)
+.nx/
+
+# ===================================
+# IDEs & Editors
+# ===================================
+# VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# JetBrains (IntelliJ, WebStorm, etc.)
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Eclipse
+.project
+.classpath
+.settings/
+.c9/
+*.launch
+
+# Sublime
+*.sublime-workspace
+*.sublime-project
+
+# Vim
+*.swp
+*.swo
+*~
+.*.swp
+
+# Emacs
+\#*\#
+.\#*
+
+# ===================================
+# OS Files
+# ===================================
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+.directory
+.Trash-*
+
+# ===================================
+# Temporary Files
+# ===================================
+.temp/
+.tmp/
+tmp/
+temp/
+*.tmp
+*.bak
+*.swp
+*.cache
+
+# ===================================
+# Framework Specific
+# ===================================
+# Next.js
+.vercel
+next-env.d.ts
+
+# NestJS
+nest-cli.log
+
+# ===================================
+# Database & Storage
+# ===================================
+*.db
+*.sqlite
+*.sqlite3
+*.db-journal
+data/
+db-data/
+
+# ===================================
+# Docker
+# ===================================
+docker-compose.override.yml
+.dockerignore.local
+
+# ===================================
+# DPP Specific (Future)
+# ===================================
+# Blockchain artifacts
+blockchain-data/
+chain-data/
+
+# Smart contracts (if using)
+artifacts/
+cache/
+typechain/
+typechain-types/
+
+# Generated documentation
+docs/generated/
+api-docs/
+
+# Product data exports
+exports/
+*.csv
+*.xlsx
+!**/fixtures/**/*.csv
+!**/fixtures/**/*.xlsx
+
+# ===================================
+# Miscellaneous
+# ===================================
+# Package manager backups
+package-lock.json.bak
+yarn.lock.bak
+
+# Debug
+debug/
+.vscode-test/
+
+# Sentry
+.sentryclirc
