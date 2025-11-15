@@ -11,6 +11,6 @@
     "noFallthroughCasesInSwitch": false,
     "allowImportingTsExtensions": false
   },
-  "include": ["src/**/*"],
-  "exclude": ["node_modules", "dist", "coverage", "test", "eslint.config.ts"]
+  "include": ["src/**/*", "test/**/*"],
+  "exclude": ["node_modules", "dist", "coverage", "eslint.config.ts"]
 }
