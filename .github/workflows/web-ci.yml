@@ -127,7 +127,7 @@ jobs:
 
   docker-build:
     runs-on: ubuntu-latest
-    if: ${{ hashFiles('apps/web/Dockerfile') != '' }}
+    if: hashFiles('apps/web/Dockerfile') != ''
     steps:
       - uses: actions/checkout@v4
 
