@@ -177,7 +177,3 @@ See [docs/BRANCH-PROTECTION.md](./docs/BRANCH-PROTECTION.md) for details.
 ## License
 
 UNLICENSED - Private project
-
-## CI/CD Status
-
-CI/CD pipelines are configured
