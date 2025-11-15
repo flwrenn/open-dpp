@@ -21,6 +21,9 @@ defaults:
 jobs:
   detect-framework:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: apps/contracts
     outputs:
       framework: ${{ steps.detect.outputs.framework }}
     steps:
@@ -128,6 +131,9 @@ jobs:
     needs: detect-framework
     if: needs.detect-framework.outputs.framework == 'none'
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: .
     steps:
       - name: Skip contracts CI
         run: |
