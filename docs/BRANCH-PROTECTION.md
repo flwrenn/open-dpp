@@ -21,19 +21,20 @@ Branch protection rules enforce code quality standards and prevent accidental ch
 **Protection Rules:**
 
 - **Pull Request Required**: All changes must go through a pull request
-  - Required approvals: 1
+  - Required approvals: 0 (CI checks are the primary gate)
   - Stale pull request approvals are dismissed when new commits are pushed
   - Code owner reviews required (if CODEOWNERS file exists)
 
 - **Required Status Checks**: The following checks must pass before merging
   - Branch must be up to date before merging
-  - `lint-and-format` - Code formatting and linting validation
-  - `ci-success` - Overall CI validation (validates all component CIs)
-  - `api-ci / lint-and-test` - API testing and linting
-  - `api-ci / type-check` - API TypeScript validation
-  - `web-ci / lint-and-build` - Web application build validation
-  - `web-ci / type-check` - Web TypeScript validation
-  - Signed commits
+  - `lint-and-format` - Code formatting and linting validation (Prettier + ESLint)
+  - `ci-success` - Aggregated CI validation that ensures all component-specific workflows pass:
+    - Contracts CI (build, test, security analysis) - runs when contracts/ changes
+    - API CI (build, test, type-check, security audit) - runs when api/ changes
+    - Web CI (build, test, type-check, bundle analysis) - runs when web/ changes
+
+- **Additional Protections**:
+  - Signed commits required
   - Linear history enforcement
 
 - **Conversation Resolution**: All PR comments must be resolved before merging
@@ -51,15 +52,12 @@ Branch protection rules enforce code quality standards and prevent accidental ch
 **Protection Rules:**
 
 - **Pull Request Required**: All changes must go through a pull request
-  - Required approvals: 1
+  - Required approvals: 0 (development branch allows more flexibility)
 
 - **Required Status Checks**: Same as main branch
-  - `lint-and-format`
-  - `ci-success`
-  - `api-ci / lint-and-test`
-  - `api-ci / type-check`
-  - `web-ci / lint-and-build`
-  - `web-ci / type-check`
+  - Branch must be up to date before merging
+  - `lint-and-format` - Code formatting and linting validation
+  - `ci-success` - Aggregated CI validation for all component workflows
 
 - **Conversation Resolution**: All PR comments must be resolved
 
@@ -79,10 +77,12 @@ Direct pushes to protected branches (`main` and `develop`) are blocked. All chan
 
 A pull request can only be merged when:
 
-1. At least 1 approval is received
-2. All required status checks are passing
-3. All PR conversations are resolved
-4. Branch is up to date with the base branch
+1. All required status checks are passing
+2. All PR conversations are resolved
+3. Branch is up to date with the base branch
+4. Commits are signed (main branch only)
+
+Note: While pull request reviews are configured, the required approval count is currently set to 0 to streamline the development process. The CI checks serve as the primary quality gate.
 
 ### Status Check Dependencies
 
