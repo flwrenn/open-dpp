@@ -31,7 +31,7 @@ branches:
       # Require pull request reviews before merging
       required_pull_request_reviews:
         # Number of required approvals
-        required_approving_review_count: 1
+        required_approving_review_count: 0
         # Dismiss stale reviews when new commits are pushed
         dismiss_stale_reviews: true
         # Require review from code owners
@@ -78,7 +78,7 @@ branches:
   - name: develop
     protection:
       required_pull_request_reviews:
-        required_approving_review_count: 1
+        required_approving_review_count: 0
         dismiss_stale_reviews: true
         require_code_owner_reviews: false
       required_status_checks:
