@@ -29,8 +29,11 @@ body:
         - Backend (NestJS API)
         - Frontend (Next.js app)
         - Infrastructure/DevOps
-        - Documentation
         - CI/CD
+        - Documentation
+        - Build system
+        - Testing infrastructure
+        - Project management / meta
         - Other
     validations:
       required: true

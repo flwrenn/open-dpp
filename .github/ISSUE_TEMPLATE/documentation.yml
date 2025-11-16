@@ -48,8 +48,10 @@ body:
         - Frontend (Next.js app)
         - Infrastructure/DevOps
         - CI/CD
-        - Getting Started
-        - Contributing
+        - Documentation
+        - Build system
+        - Testing infrastructure
+        - Project management / meta
         - Other
     validations:
       required: true
