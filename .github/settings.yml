@@ -66,13 +66,13 @@ branches:
       allow_deletions: false
 
       # Require signed commits
-      required_signatures: false
+      required_signatures: true
 
       # Lock branch (read-only)
       lock_branch: false
 
       # Require linear history
-      required_linear_history: false
+      required_linear_history: true
 
   # Protect develop branch
   - name: develop
