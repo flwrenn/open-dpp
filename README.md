@@ -17,70 +17,10 @@ open-dpp/
 └── docs/             # Project documentation
 ```
 
-## Prerequisites
+## Requirements
 
 - Node.js >= 20.0.0
 - pnpm >= 9.0.0
-
-## Getting Started
-
-### Installation
-
-```bash
-# Install dependencies
-pnpm install
-
-# Setup git hooks
-pnpm prepare
-```
-
-### Development
-
-```bash
-# Run all apps in development mode
-pnpm dev
-
-# Run specific app
-pnpm --filter api dev
-pnpm --filter web dev
-```
-
-### Building
-
-```bash
-# Build all apps
-pnpm build
-
-# Build specific app
-pnpm --filter api build
-pnpm --filter web build
-```
-
-### Testing
-
-```bash
-# Run all tests
-pnpm test
-
-# Run tests in watch mode
-pnpm test:watch
-
-# Run tests with coverage
-pnpm test:cov
-```
-
-### Linting & Formatting
-
-```bash
-# Lint all packages
-pnpm lint
-
-# Format all files
-pnpm format
-
-# Check formatting without making changes
-pnpm format:check
-```
 
 ## Tooling
 
@@ -143,7 +83,7 @@ Shared ESLint configurations are available in `packages/eslint-config/`:
 
 All configuration files use TypeScript and ES modules for better type safety and modern JavaScript standards.
 
-## Scripts Reference
+## Available Scripts
 
 | Script              | Description                                |
 | ------------------- | ------------------------------------------ |
@@ -158,13 +98,45 @@ All configuration files use TypeScript and ES modules for better type safety and
 | `pnpm test:cov`     | Run tests with coverage                    |
 | `pnpm clean`        | Clean all build artifacts and node_modules |
 
-## Contributing
+## Development Workflow
+
+### Branch Protection
+
+The repository uses branch protection rules on `main` and `develop` branches that:
+
+- Require pull requests with at least 1 approval
+- Require all CI checks to pass before merging
+- Prevent direct pushes and force pushes
+- Require all conversations to be resolved
+
+See [docs/BRANCH-PROTECTION.md](docs/BRANCH-PROTECTION.md) for complete details.
+
+### Continuous Integration
+
+The CI pipeline automatically:
+
+- Validates code formatting and linting
+- Runs tests for all changed components
+- Performs type checking
+- Scans for security vulnerabilities
+- Generates coverage reports
+
+See [docs/CI-CD.md](docs/CI-CD.md) for pipeline details.
+
+### Pull Request Process
 
 1. Create a new branch from `main`
-2. Make your changes following the code style and commit conventions
-3. Ensure all tests pass: `pnpm test`
-4. Ensure linting passes: `pnpm lint`
-5. Submit a pull request
+2. Make changes following the code style and commit conventions
+3. Push branch and create pull request
+4. CI runs automatically and must pass
+5. Obtain required approvals (minimum 1)
+6. Resolve all PR conversations
+7. Merge when all checks are green
+
+## Documentation
+
+- [Branch Protection Rules](docs/BRANCH-PROTECTION.md)
+- [CI/CD Pipeline](docs/CI-CD.md)
 
 ## License
 

@@ -1,0 +1,89 @@
+version: 2
+updates:
+  # GitHub Actions
+  - package-ecosystem: 'github-actions'
+    directory: '/'
+    schedule:
+      interval: 'weekly'
+    labels:
+      - 'dependencies'
+      - 'github-actions'
+
+  # pnpm for root
+  - package-ecosystem: 'npm'
+    directory: '/'
+    schedule:
+      interval: 'weekly'
+    labels:
+      - 'dependencies'
+      - 'root'
+    groups:
+      dev-dependencies:
+        patterns:
+          - '@types/*'
+          - 'eslint*'
+          - 'prettier'
+          - 'typescript'
+        update-types:
+          - 'minor'
+          - 'patch'
+
+  # API dependencies
+  - package-ecosystem: 'npm'
+    directory: '/apps/api'
+    schedule:
+      interval: 'weekly'
+    labels:
+      - 'dependencies'
+      - 'api'
+    groups:
+      nestjs:
+        patterns:
+          - '@nestjs/*'
+        update-types:
+          - 'minor'
+          - 'patch'
+      testing:
+        patterns:
+          - 'jest'
+          - '@types/jest'
+          - 'ts-jest'
+          - 'supertest'
+        update-types:
+          - 'minor'
+          - 'patch'
+
+  # Web dependencies
+  - package-ecosystem: 'npm'
+    directory: '/apps/web'
+    schedule:
+      interval: 'weekly'
+    labels:
+      - 'dependencies'
+      - 'web'
+    groups:
+      react:
+        patterns:
+          - 'react'
+          - 'react-dom'
+          - '@types/react*'
+        update-types:
+          - 'minor'
+          - 'patch'
+      nextjs:
+        patterns:
+          - 'next'
+          - 'eslint-config-next'
+        update-types:
+          - 'minor'
+          - 'patch'
+
+  # Contracts dependencies (if they exist)
+  - package-ecosystem: 'npm'
+    directory: '/apps/contracts'
+    schedule:
+      interval: 'weekly'
+    labels:
+      - 'dependencies'
+      - 'contracts'
+    open-pull-requests-limit: 5

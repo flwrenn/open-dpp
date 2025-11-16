@@ -1,0 +1,142 @@
+name: Contracts CI
+
+on:
+  workflow_call: {}
+  pull_request:
+    paths:
+      - 'apps/contracts/**'
+      - 'packages/**'
+      - '.github/workflows/contracts-ci.yml'
+  push:
+    branches: [main, develop]
+    paths:
+      - 'apps/contracts/**'
+      - 'packages/**'
+      - '.github/workflows/contracts-ci.yml'
+
+defaults:
+  run:
+    working-directory: apps/contracts
+
+jobs:
+  detect-framework:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: apps/contracts
+    outputs:
+      framework: ${{ steps.detect.outputs.framework }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - id: detect
+        run: |
+          if [ -f "hardhat.config.ts" ] || [ -f "hardhat.config.js" ]; then
+            echo "framework=hardhat" >> $GITHUB_OUTPUT
+          elif [ -f "foundry.toml" ]; then
+            echo "framework=foundry" >> $GITHUB_OUTPUT
+          else
+            echo "framework=none" >> $GITHUB_OUTPUT
+          fi
+
+  hardhat:
+    needs: detect-framework
+    if: needs.detect-framework.outputs.framework == 'hardhat'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9.15.0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+        working-directory: .
+
+      - name: Compile contracts
+        run: pnpm build
+
+      - name: Run tests
+        run: pnpm test
+
+      - name: Run coverage
+        run: pnpm test:coverage
+        continue-on-error: true
+
+      - name: Check contract size
+        run: pnpm hardhat size-contracts
+        continue-on-error: true
+
+  foundry:
+    needs: detect-framework
+    if: needs.detect-framework.outputs.framework == 'foundry'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Install Foundry
+        uses: foundry-rs/foundry-toolchain@v1
+
+      - name: Install dependencies
+        run: forge install
+
+      - name: Build contracts
+        run: forge build --sizes
+
+      - name: Run tests
+        run: forge test -vvv
+
+      - name: Run coverage
+        run: forge coverage --report lcov
+        continue-on-error: true
+
+      - name: Run gas report
+        run: forge test --gas-report
+        continue-on-error: true
+
+  security-analysis:
+    needs: detect-framework
+    if: needs.detect-framework.outputs.framework != 'none'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      security-events: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run Slither
+        uses: crytic/slither-action@v0.4.0
+        id: slither
+        with:
+          target: apps/contracts
+          slither-args: --filter-paths "node_modules|test"
+          fail-on: none
+        continue-on-error: true
+
+      - name: Upload SARIF file
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: ${{ steps.slither.outputs.sarif }}
+        continue-on-error: true
+
+  no-contracts:
+    needs: detect-framework
+    if: needs.detect-framework.outputs.framework == 'none'
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: .
+    steps:
+      - name: Skip contracts CI
+        run: |
+          echo "No smart contracts framework detected (Hardhat or Foundry)"
+          echo "Skipping contracts CI..."
+          echo "This is expected if contracts haven't been set up yet."
