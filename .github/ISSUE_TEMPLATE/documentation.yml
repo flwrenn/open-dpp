@@ -1,0 +1,122 @@
+name: Documentation
+description: Report missing, unclear, or incorrect documentation
+title: '[Docs]: '
+labels: ['documentation']
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping improve our documentation! Please fill out the form below.
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: What documentation needs to be added or improved?
+      placeholder: Brief description of the documentation issue
+    validations:
+      required: true
+
+  - type: dropdown
+    id: documentation-type
+    attributes:
+      label: Type of Documentation
+      description: What type of documentation is this about?
+      options:
+        - API documentation
+        - User guide
+        - Developer guide
+        - Architecture documentation
+        - README
+        - Code comments
+        - Tutorial
+        - FAQ
+        - Other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: affected-area
+    attributes:
+      label: Affected Area
+      description: Which part of the system does this documentation relate to?
+      multiple: true
+      options:
+        - Smart contracts (Solidity/Chaincode)
+        - Backend (NestJS API)
+        - Frontend (Next.js app)
+        - Infrastructure/DevOps
+        - CI/CD
+        - Documentation
+        - Build system
+        - Testing infrastructure
+        - Project management / meta
+        - Other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: issue-type
+    attributes:
+      label: Issue Type
+      description: What kind of documentation issue is this?
+      options:
+        - Missing documentation
+        - Incorrect/outdated documentation
+        - Unclear/confusing documentation
+        - Incomplete documentation
+        - Documentation improvement
+        - New documentation request
+    validations:
+      required: true
+
+  - type: textarea
+    id: current-state
+    attributes:
+      label: Current State
+      description: What is the current state of the documentation?
+      placeholder: |
+        - Link to existing documentation (if applicable)
+        - What's currently documented?
+        - What's missing or incorrect?
+    validations:
+      required: true
+
+  - type: textarea
+    id: desired-state
+    attributes:
+      label: Desired State
+      description: What should the documentation include or explain?
+      placeholder: |
+        Describe what you'd like to see documented:
+        - What information should be included?
+        - What questions should it answer?
+        - Who is the target audience?
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional Context
+      description: |
+        Add any other context here. This may include:
+        - Examples from other projects
+        - Screenshots
+        - Links to related issues or PRs
+        - Specific use cases
+      placeholder: Add any additional information
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: contribution
+    attributes:
+      label: Contribution
+      description: Would you be willing to help with this documentation?
+      options:
+        - label: I would be willing to write or update this documentation
+          required: false
+        - label: I can provide examples or review the documentation
+          required: false

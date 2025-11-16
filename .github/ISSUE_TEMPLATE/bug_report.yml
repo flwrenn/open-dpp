@@ -1,0 +1,114 @@
+name: Bug Report
+description: Report a bug or unexpected behavior in the DPP system
+title: '[Bug]: '
+labels: ['bug']
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report this bug! Please fill out the form below to help us understand and fix the issue.
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: A brief description of the bug
+      placeholder: What went wrong?
+    validations:
+      required: true
+
+  - type: dropdown
+    id: affected-area
+    attributes:
+      label: Affected Area
+      description: Which part of the system is affected?
+      multiple: true
+      options:
+        - Smart contracts (Solidity/Chaincode)
+        - Backend (NestJS API)
+        - Frontend (Next.js app)
+        - Infrastructure/DevOps
+        - CI/CD
+        - Documentation
+        - Build system
+        - Testing infrastructure
+        - Project management / meta
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: current-behavior
+    attributes:
+      label: Current Behavior
+      description: What is happening right now?
+      placeholder: Describe what currently happens when you encounter this bug
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected-behavior
+    attributes:
+      label: Expected Behavior
+      description: What should happen instead?
+      placeholder: Describe what you expected to happen
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps-to-reproduce
+    attributes:
+      label: Steps to Reproduce
+      description: How can we reproduce this bug?
+      placeholder: |
+        1. Go to '...'
+        2. Click on '...'
+        3. Execute '...'
+        4. See error
+    validations:
+      required: true
+
+  - type: dropdown
+    id: environment
+    attributes:
+      label: Environment
+      description: Where did you encounter this bug?
+      options:
+        - Local development
+        - Test environment
+        - Staging
+        - Production
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional Context
+      description: |
+        Add any other context about the problem here. This may include:
+        - Error logs or stack traces
+        - Screenshots or screen recordings
+        - Network requests/responses
+        - Smart contract addresses
+        - Transaction hashes
+        - Browser/Node.js version
+        - Operating system
+      placeholder: Paste logs, add screenshots, or provide any additional information
+    validations:
+      required: false
+
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severity
+      description: How severe is this bug?
+      options:
+        - Critical (System down, data loss)
+        - High (Major feature broken)
+        - Medium (Feature partially working)
+        - Low (Minor issue, workaround exists)
+    validations:
+      required: true
