@@ -169,7 +169,20 @@ Failed workflows can be re-run either completely or only the failed jobs.
 
 The CI pipeline automatically runs on every pull request and provides status checks that are required before merging (see [Branch Protection Rules](./BRANCH-PROTECTION.md)).
 
-Pull requests must have all required status checks passing before they can be merged to protected branches.
+### Required Status Checks
+
+GitHub sees two main status checks from the CI pipeline:
+
+1. **`lint-and-format`** - Ensures code meets formatting and linting standards
+2. **`ci-success`** - Aggregated check that validates all component CIs passed
+
+The `ci-success` job is dependent on all component-specific workflows (contracts-ci, api-ci, web-ci) and will only pass if:
+
+- All component workflows that ran have passed
+- Skipped workflows (due to no changes) are treated as successful
+- The `lint-and-format` check has passed
+
+This design ensures that only two status checks need to be configured for branch protection, while still validating all components thoroughly.
 
 ## Security
 
