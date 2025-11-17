@@ -29,7 +29,7 @@
   },
   "devDependencies": {
     "@nestjs/cli": "^10.0.0",
-    "@nestjs/schematics": "^10.0.0",
+    "@nestjs/schematics": "^11.0.9",
     "@nestjs/testing": "^10.0.0",
     "@open-dpp/eslint-config": "workspace:*",
     "@open-dpp/tsconfig": "workspace:*",
