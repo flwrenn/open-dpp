@@ -173,7 +173,6 @@ This aligns with industry leaders (LVMH AURA, Arianee Protocol) and ensures:
 - `@openzeppelin/contracts/token/ERC721/ERC721.sol` - Base NFT implementation
 - `@openzeppelin/contracts/access/AccessControl.sol` - Role-based permissions (manufacturer, repairer)
 - `@openzeppelin/contracts/security/Pausable.sol` - Emergency pause functionality
-- `@openzeppelin/contracts/utils/Counters.sol` - Safe token ID generation
 
 ---
 
