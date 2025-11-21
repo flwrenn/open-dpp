@@ -503,7 +503,7 @@ Key events emitted by the system for auditability and integration:
 
 ### 7.1 External Systems (MVP)
 
-- **Blockchain Network**: Ethereum testnet (Goerli/Sepolia) for development; mainnet for production
+- **Blockchain Network**: Ethereum testnet (Sepolia) for development; mainnet for production
 - **Decentralized Storage**: IPFS for metadata and documents
 - **Wallet Integration**: MetaMask for user authentication and transaction signing
 
@@ -550,7 +550,7 @@ The MVP is considered successful when:
 
 ### 9.3 Frontend
 
-- **Framework**: React (TypeScript)
+- **Framework**: Next.js (TypeScript)
 - **Web3 Integration**: ethers.js + MetaMask
 - **Styling**: TBD (Material-UI, Tailwind, or custom)
 
