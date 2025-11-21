@@ -552,7 +552,7 @@ The MVP is considered successful when:
 
 - **Framework**: Next.js (TypeScript)
 - **Web3 Integration**: ethers.js + MetaMask
-- **Styling**: TBD (Material-UI, Tailwind, or custom)
+- **Styling**: Tailwind
 
 ### 9.4 Storage
 
