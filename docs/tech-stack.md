@@ -1,17 +1,5 @@
 # Digital Product Passport (DPP) - Technology Stack Specification
 
-## Document Information
-
-**Version**: 1.0
-**Last Updated**: 2025-11-21
-**Status**: Approved for MVP Implementation
-**Related Documents**:
-
-- [Domain Specification](./domain.md)
-- [Execution Plan](./dpp-execution-plan.docx)
-
----
-
 ## Executive Summary
 
 This document formalizes the technology stack for the Digital Product Passport (DPP) MVP. All choices prioritize **stability**, **industry alignment**, **open-source principles**, and **demonstrable value** for production readiness.
@@ -784,10 +772,3 @@ All decisions prioritize **simplicity without sacrificing quality**, ensuring th
 10. **NestJS Documentation**: [https://docs.nestjs.com/](https://docs.nestjs.com/)
 
 ---
-
-**Document Approval**:
-This specification is approved for implementation as the foundation for DPP MVP development.
-
-**Change Log**:
-
-- 2025-11-21: Initial version 1.0 - Complete technology stack specification
