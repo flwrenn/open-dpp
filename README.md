@@ -10,7 +10,8 @@ This is a monorepo managed with pnpm workspaces and Turbo for efficient build or
 open-dpp/
 ├── apps/
 │   ├── api/          # NestJS backend API
-│   └── web/          # Next.js frontend application
+│   ├── web/          # Next.js frontend application
+│   └── contracts/    # Solidity smart contracts (Hardhat project)
 ├── packages/
 │   ├── tsconfig/     # Shared TypeScript configurations
 │   └── eslint-config/ # Shared ESLint configurations
@@ -21,6 +22,38 @@ open-dpp/
 
 - Node.js >= 20.0.0
 - pnpm >= 9.0.0
+
+## Technology Overview
+
+### Blockchain Stack
+
+- **Platform**: Ethereum (EVM-compatible)
+- **Network**: Sepolia Testnet (development) / Ethereum Mainnet (production)
+- **Token Standard**: ERC-721 (Non-Fungible Token)
+- **Smart Contracts**: Solidity ^0.8.20
+- **Framework**: Hardhat
+- **Libraries**: OpenZeppelin Contracts
+- **Web3 Integration**: ethers.js v6
+
+### Backend
+
+- **Framework**: NestJS (TypeScript/Node.js)
+- **API**: RESTful JSON
+- **Authentication**: Wallet-based (Ethereum signatures)
+
+### Frontend
+
+- **Framework**: Next.js 14+ (React)
+- **Styling**: Tailwind CSS
+- **Wallet Integration**: MetaMask, WalletConnect
+
+### Storage
+
+- **On-Chain**: Critical passport data (ownership, hashes)
+- **Off-Chain**: IPFS (metadata, documents, images)
+- **Database**: PostgreSQL (optional, for indexing)
+
+See [docs/tech-stack.md](docs/tech-stack.md) for complete technical specifications and rationale.
 
 ## Tooling
 
@@ -109,7 +142,7 @@ The repository uses branch protection rules on `main` and `develop` branches tha
 - Prevent direct pushes and force pushes
 - Require all conversations to be resolved
 
-See [docs/BRANCH-PROTECTION.md](docs/BRANCH-PROTECTION.md) for complete details.
+See [docs/branch-protection.md](docs/branch-protection.md) for complete details.
 
 ### Continuous Integration
 
@@ -121,7 +154,7 @@ The CI pipeline automatically:
 - Scans for security vulnerabilities
 - Generates coverage reports
 
-See [docs/CI-CD.md](docs/CI-CD.md) for pipeline details.
+See [docs/ci-cd.md](docs/ci-cd.md) for pipeline details.
 
 ### Pull Request Process
 
@@ -135,8 +168,15 @@ See [docs/CI-CD.md](docs/CI-CD.md) for pipeline details.
 
 ## Documentation
 
-- [Branch Protection Rules](docs/BRANCH-PROTECTION.md)
-- [CI/CD Pipeline](docs/CI-CD.md)
+### Project Specifications
+
+- [Domain Specification](docs/domain.md) - Digital Product Passport requirements, actors, user stories, and business rules
+- [Technology Stack](docs/tech-stack.md) - Complete technical architecture and technology choices
+
+### Development Workflows
+
+- [Branch Protection Rules](docs/branch-protection.md) - Git workflow and branch protection configuration
+- [CI/CD Pipeline](docs/ci-cd.md) - Continuous integration and testing pipeline
 
 ## License
 
