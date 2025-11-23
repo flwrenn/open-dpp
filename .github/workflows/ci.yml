@@ -69,6 +69,9 @@ jobs:
     needs: changes
     if: needs.changes.outputs.contracts == 'true'
     uses: ./.github/workflows/contracts-ci.yml
+    permissions:
+      contents: read
+      security-events: write
     secrets: inherit
 
   api-ci:

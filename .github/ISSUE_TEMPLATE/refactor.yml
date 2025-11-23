@@ -1,0 +1,153 @@
+name: Refactor / Code Quality
+description: Propose code refactoring or quality improvements
+title: '[Refactor]: '
+labels: ['refactor']
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping improve our code quality! Please fill out the form below to describe your refactoring proposal.
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: A brief description of the refactoring or improvement
+      placeholder: What needs to be refactored or improved?
+    validations:
+      required: true
+
+  - type: dropdown
+    id: refactor-type
+    attributes:
+      label: Type of Improvement
+      description: What kind of improvement is this?
+      multiple: true
+      options:
+        - Code refactoring
+        - Performance optimization
+        - Code organization/structure
+        - Design pattern improvement
+        - Technical debt reduction
+        - Test coverage improvement
+        - Security enhancement
+        - Dependency update
+        - Code style/formatting
+        - Error handling improvement
+        - Other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: affected-area
+    attributes:
+      label: Affected Area
+      description: Which part of the system would this affect?
+      multiple: true
+      options:
+        - Smart contracts (Solidity/Chaincode)
+        - Backend (NestJS API)
+        - Frontend (Next.js app)
+        - Infrastructure/DevOps
+        - CI/CD
+        - Documentation
+        - Build system
+        - Testing infrastructure
+        - Project management / meta
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: current-state
+    attributes:
+      label: Current State
+      description: What is the current state of the code?
+      placeholder: |
+        Describe the current implementation:
+        - What makes the current code problematic?
+        - What technical debt or issues exist?
+        - Link to specific files or code sections
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposed-changes
+    attributes:
+      label: Proposed Changes
+      description: What changes do you propose?
+      placeholder: |
+        Describe the refactoring approach:
+        - What patterns or techniques would you use?
+        - How would the code be restructured?
+        - What would the benefits be?
+    validations:
+      required: true
+
+  - type: textarea
+    id: benefits
+    attributes:
+      label: Benefits
+      description: What benefits will this refactoring provide?
+      placeholder: |
+        List the benefits:
+        - Improved maintainability
+        - Better performance
+        - Reduced complexity
+        - Better testability
+        - Enhanced security
+        - etc.
+    validations:
+      required: true
+
+  - type: textarea
+    id: risks
+    attributes:
+      label: Risks & Breaking Changes
+      description: Are there any risks or breaking changes?
+      placeholder: |
+        - Will this introduce breaking changes?
+        - Are there migration concerns?
+        - What testing is needed?
+        - Any deployment considerations?
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional Context
+      description: |
+        Add any other context here. This may include:
+        - Code snippets (before/after)
+        - Performance benchmarks
+        - Links to similar refactorings
+        - References to best practices
+      placeholder: Add any additional information
+    validations:
+      required: false
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      description: How important is this refactoring?
+      options:
+        - Critical (Blocking or high-risk technical debt)
+        - High (Should be addressed soon)
+        - Medium (Would improve code quality)
+        - Low (Nice to have)
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: contribution
+    attributes:
+      label: Contribution
+      description: Would you be willing to contribute to this refactoring?
+      options:
+        - label: I would be willing to implement this refactoring
+          required: false
+        - label: I would be willing to help review this refactoring
+          required: false

@@ -1,0 +1,144 @@
+name: Chore
+description: Track maintenance, housekeeping, and operational tasks that are not features or bug fixes
+title: '[Chore]: '
+labels: ['chore']
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping maintain the project! Please fill out the form below to describe the chore.
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: A brief description of the chore
+      placeholder: What needs to be done?
+    validations:
+      required: true
+
+  - type: dropdown
+    id: chore-type
+    attributes:
+      label: Type of Chore
+      description: What kind of chore is this?
+      multiple: true
+      options:
+        - Dependency update
+        - Build / tooling maintenance
+        - CI/CD maintenance
+        - Code cleanup (non-functional)
+        - Documentation housekeeping
+        - Infrastructure / DevOps maintenance
+        - Release process / versioning
+        - Security hardening (non-feature)
+        - Repository / metadata updates
+        - Other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: affected-area
+    attributes:
+      label: Affected Area
+      description: Which part of the system will this impact?
+      multiple: true
+      options:
+        - Smart contracts (Solidity/Chaincode)
+        - Backend (NestJS API)
+        - Frontend (Next.js app)
+        - Infrastructure/DevOps
+        - CI/CD
+        - Documentation
+        - Build system
+        - Testing infrastructure
+        - Project management / meta
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: motivation
+    attributes:
+      label: Motivation / Rationale
+      description: Why is this chore needed now?
+      placeholder: |
+        Explain why this chore is necessary:
+        - What problem does it prevent or address?
+        - What risk if we do nothing?
+        - Any time sensitivity?
+    validations:
+      required: true
+
+  - type: textarea
+    id: tasks
+    attributes:
+      label: Subtasks / Action Items
+      description: List concrete steps required to complete this chore
+      placeholder: |
+        - [ ] Step 1
+        - [ ] Step 2
+        - [ ] Step 3
+    validations:
+      required: true
+
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: Dependencies & Sequencing
+      description: Are there any related issues, PRs, or ordering concerns?
+      placeholder: |
+        - Depends on issue #...
+        - Must happen before release vX.Y
+        - Blocks feature request #...
+    validations:
+      required: false
+
+  - type: textarea
+    id: risks
+    attributes:
+      label: Risks / Considerations
+      description: Any potential side effects, migration steps, or rollback plan?
+      placeholder: |
+        - Potential impact on build times
+        - Rollback approach if something fails
+        - Monitoring / verification steps
+    validations:
+      required: false
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      description: How important is this chore?
+      options:
+        - Critical (Blocking or high-risk)
+        - High (Should be addressed soon)
+        - Medium (Valuable but not urgent)
+        - Low (Nice to have / opportunistic)
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional Context
+      description: Any other information, links, or references
+      placeholder: |
+        - Links to PRs / issues
+        - Reference docs
+        - Benchmarks / metrics
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: contribution
+    attributes:
+      label: Contribution
+      description: Would you be willing to implement or assist?
+      options:
+        - label: I would be willing to implement this chore
+          required: false
+        - label: I would be willing to help review / verify this chore
+          required: false
